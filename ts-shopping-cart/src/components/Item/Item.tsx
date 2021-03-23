@@ -1,4 +1,3 @@
-
 import Button from '@material-ui/core/Button'
 
 // Types 
@@ -11,11 +10,7 @@ type Props = {
     handleAddToCart: (clickedItem: CartItemType) => void;
 }
 
-
 const Item: React.FC<Props> = ({ item, handleAddToCart }) => {
-
-    console.log(item)
-
     return (
         <Wrapper>
             <img
