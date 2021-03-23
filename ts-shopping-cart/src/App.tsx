@@ -22,24 +22,14 @@ export type CardItemType = {
   amount: number;
 }
 
-const getProducts = async (): Promise<CardItemType[]> => {
-  const headers = new Headers();
-  headers.set('Access-Control-Allow-Origin', '*');
-  const init: RequestInit = {
-    mode: 'no-cors',
-    credentials: 'omit',
-    headers,
-  }
-  return await (await fetch('https://fakestoreapi.com/products',
-    init
-  )).json()
-}
+const getProducts = async (): Promise<CardItemType[]> =>
+  await (await fetch('https://fakestoreapi.herokuapp.com/products')).json()
+
 
 
 const App = () => {
 
   const { data, isLoading, error } = useQuery<CardItemType[]>('products', getProducts)
-  console.log('here', data);
 
   return (
     <div className="App">
