@@ -12,7 +12,7 @@ import AddShoppingCartIcon from '@material-ui/icons/AddShoppingCart';
 import { Wrapper } from './App.styles';
 
 // Types
-export type CardItemType = {
+export type CartItemType = {
   id: number;
   category: string;
   description: string;
@@ -22,14 +22,14 @@ export type CardItemType = {
   amount: number;
 }
 
-const getProducts = async (): Promise<CardItemType[]> =>
+const getProducts = async (): Promise<CartItemType[]> =>
   await (await fetch('https://fakestoreapi.herokuapp.com/products')).json()
 
 
 
 const App = () => {
 
-  const { data, isLoading, error } = useQuery<CardItemType[]>('products', getProducts)
+  const { data, isLoading, error } = useQuery<CartItemType[]>('products', getProducts)
 
   const getTotalItems = () => null
 
