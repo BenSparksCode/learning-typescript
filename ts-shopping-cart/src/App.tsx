@@ -31,6 +31,16 @@ const App = () => {
 
   const { data, isLoading, error } = useQuery<CardItemType[]>('products', getProducts)
 
+  const getTotalItems = () => null
+
+  const handleAddToCart = () => null
+
+  const handleRemoveFromCart = () => null
+
+  if(isLoading) return <LinearProgress />
+  if(error) return <div>Something went wrong...</div>
+  
+
   return (
     <div className="App">
       start
