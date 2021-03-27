@@ -34,7 +34,8 @@ const App = () => {
   const [cartItems, setCartItems] = useState([] as CartItemType[])
   const { data, isLoading, error } = useQuery<CartItemType[]>('products', getProducts)
 
-  const getTotalItems = (items: CartItemType[]) => null
+  const getTotalItems = (items: CartItemType[]) => 
+    items.reduce((acc: number, item) => acc + item.amount, 0)
 
   const handleAddToCart = (clickedItem: CartItemType) => null
 
@@ -51,7 +52,7 @@ const App = () => {
         open={cartOpen}
         onClose={() => setCartOpen(false)}
       >
-        Cart
+        Cart goes here
       </Drawer>
 
       <StyledButton onClick={() => setCartOpen(true)}>
