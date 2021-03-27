@@ -34,7 +34,7 @@ const App = () => {
   const [cartItems, setCartItems] = useState([] as CartItemType[])
   const { data, isLoading, error } = useQuery<CartItemType[]>('products', getProducts)
 
-  const getTotalItems = () => null
+  const getTotalItems = (items: CartItemType[]) => null
 
   const handleAddToCart = (clickedItem: CartItemType) => null
 
@@ -54,7 +54,11 @@ const App = () => {
         Cart
       </Drawer>
 
-      <StyledButton onClick={() => setCartOpen(true)}></StyledButton>
+      <StyledButton onClick={() => setCartOpen(true)}>
+        <Badge badgeContent={getTotalItems(cartItems)} color='error'>
+          <AddShoppingCartIcon />
+        </Badge>
+      </StyledButton>
       
       <Grid container spacing={3}>
         {data?.map(item => (
