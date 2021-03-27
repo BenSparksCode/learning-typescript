@@ -1,4 +1,7 @@
 
+// Components
+import CartItem from '../CartItem/CartItem'
+
 // Types 
 
 // Styles
